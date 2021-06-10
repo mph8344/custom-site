@@ -7,7 +7,59 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./custom.css" />
+
+    <style type="text/css">
+      @import url("https://use.typekit.net/tpf4vai.css");
+
+      body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        background-color: #1e1e1e;
+      }
+
+      .grid-container {
+        display: grid;
+
+        grid-template-columns: repeat(4, 25vw);
+        grid-auto-rows: 25vh;
+      }
+
+      .grid-container > div {
+        background-color: #eee;
+        padding: 1em;
+        transition-duration: 500ms;
+        opacity: 0;
+      }
+
+      .grid-container > div:hover {
+        background-color: #eee;
+        padding: 1em;
+        transition-duration: 500ms;
+        opacity: 1;
+      }
+
+      .dae-container {
+        pointer-events: none;
+        position: absolute;
+        z-index: 10;
+        color: white;
+        font-family: rig-shaded-bold-extrude, sans-serif;
+
+        font-weight: 700;
+
+        font-style: normal;
+        font-size: 50vh;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    </style>
   </head>
   <body>
     <div class="dae-container">DAE</div>
@@ -29,6 +81,21 @@
       <div class="square"></div>
       <div class="square"></div>
     </div>
-    <script src="./custom.js"></script>
+    <script>
+      $(() => {
+        [...$(".square")].forEach(element => {
+          $(element).css(
+            "background-color",
+            "rgb(" +
+              Math.floor(Math.random() * 255) +
+              "," +
+              Math.floor(Math.random() * 255) +
+              "," +
+              Math.floor(Math.random() * 255) +
+              ")"
+          );
+        });
+      });
+    </script>
   </body>
 </html>
