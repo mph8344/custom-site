@@ -53,8 +53,6 @@ window.addEventListener("resize", function () {
 });
 
 function setCSS(element) {
-  console.log("setting css");
-
   $(element).css(
     "background-color",
     "rgb(" +
@@ -69,9 +67,8 @@ function setCSS(element) {
 
 function readySquares() {
   squares.forEach((element, index) => {
-    //var calculated = index * 50 + 6000;
-    setInterval(() => setCSS(element), 7500);
+    setInterval(() => {
+      setCSS(element);
+    }, 80000);
   });
 }
-
-function checkSize() {}
