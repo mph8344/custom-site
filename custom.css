@@ -38,13 +38,17 @@ body {
   position: absolute;
   z-index: 10;
   color: white;
+
   font-family: rig-shaded-bold-extrude, sans-serif;
-
   font-weight: 700;
-
   font-style: normal;
-  font-size: 50vh;
+  font-size: 25.5vw;
+
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
+  display: flex;
+  justify-content: center;
+  width: 75%;
 }

@@ -12,3 +12,6 @@ $(() => {
     );
   });
 });
+
+//index index.html index.htm index.nginx-debian.html;
+//try_files $uri $uri/ =404;
