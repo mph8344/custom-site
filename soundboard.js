@@ -39,6 +39,7 @@ $(() => {
     var sound = "./sounds/" + sounds[getRandomInt(sounds.length)];
 
     var audio = new Audio(sound);
+    audio.volume = 0.5;
 
     element.onclick = () => playSound(audio);
 
