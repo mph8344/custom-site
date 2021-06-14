@@ -1,5 +1,17 @@
 var squares;
 var prevWidth;
+var globalSound;
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var sounds = [
+  "beandip.mp3",
+  "hedontbox.mp3",
+  "hillaryisinhim.mp3",
+  "mattaah.mp3",
+];
 
 $(() => {
   var customMessages = [];
@@ -24,17 +36,31 @@ $(() => {
         ")"
     );
 
+    var sound = "./sounds/" + sounds[getRandomInt(sounds.length)];
+
+    var audio = new Audio(sound);
+
+    element.onclick = () => playSound(audio);
+
     var calculated = index * 100;
 
     $(element).css("animation-delay", `${calculated}ms`);
   });
 
-  console.log($width);
-
   if ($width < 900) {
     readySquares();
   }
 });
+
+function playSound(audio) {
+  if (globalSound) {
+    globalSound.pause();
+  }
+
+  globalSound = audio;
+
+  globalSound.play();
+}
 
 //index index.html index.htm index.nginx-debian.html;
 //try_files $uri $uri/ =404;
