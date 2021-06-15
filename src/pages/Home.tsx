@@ -1,14 +1,10 @@
-import Square from "../components/Square";
+import Grid from "../components/Grid";
 
 function Home() {
   return (
     <>
       <div className="dae-container">DAE</div>
-      <div className="grid-container">
-        {[...Array(16)].map((e, index) => {
-          return <Square key={index} thisIdx={index} />;
-        })}
-      </div>
+      <Grid withSound={false} />
     </>
   );
 }

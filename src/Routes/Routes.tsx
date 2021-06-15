@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
+import Countdown from "../pages/Countdown";
 
 const Home = lazy(() => import("../pages/Home"));
 
@@ -11,6 +12,9 @@ function Routes() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/countdown">
+            <Countdown />
           </Route>
         </Switch>
       </Suspense>

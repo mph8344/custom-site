@@ -12,6 +12,7 @@ function getRandomColor(): string {
 
 type SquareProps = {
   thisIdx: number;
+  withSound: boolean;
 };
 
 function Square({ thisIdx }: SquareProps) {
