@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 function randomInt(max: number) {
   return Math.floor(Math.random() * max);
 }
@@ -13,9 +14,10 @@ function getRandomColor(): string {
 type SquareProps = {
   thisIdx: number;
   withSound: boolean;
+  customClickEvent?: MouseEventHandler<HTMLDivElement>;
 };
 
-function Square({ thisIdx }: SquareProps) {
+function Square(props: SquareProps) {
   var colorString = getRandomColor();
   return (
     <div className="square" style={{ backgroundColor: colorString }}></div>

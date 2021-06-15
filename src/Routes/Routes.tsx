@@ -5,6 +5,7 @@ import { Spinner } from "react-bootstrap";
 const Home = lazy(() => import("../pages/Home"));
 
 const Countdown = lazy(() => import("../pages/Countdown"));
+const Soundboard = lazy(() => import("../pages/Soundboard"));
 
 function Routes() {
   return (
@@ -16,6 +17,9 @@ function Routes() {
           </Route>
           <Route exact path="/countdown">
             <Countdown />
+          </Route>
+          <Route exact path="/soundboard">
+            <Soundboard />
           </Route>
         </Switch>
       </Suspense>

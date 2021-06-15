@@ -19,11 +19,21 @@ body {
   grid-auto-rows: 25vh;
 }
 
+.innerText {
+  mix-blend-mode: overlay;
+  opacity: 1;
+}
+
 .grid-container > div {
   background-color: #eee;
   padding: 1em;
   transition-duration: 500ms;
   opacity: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 @media (min-width: 800px) {
