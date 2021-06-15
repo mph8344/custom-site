@@ -1,4 +1,3 @@
-//import Square from "../Square";
 import { useEffect, useState, useRef } from "react";
 
 function randomInt(max: number) {
@@ -9,7 +8,6 @@ function getRandomColor(): string {
   var red = randomInt(255);
   var blue = randomInt(255);
   var green = randomInt(255);
-  //)
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
@@ -26,8 +24,10 @@ const sounds: string[] = [
   "reed_nut.wav",
 ];
 
+const emptyAudio = new Audio();
+
 function Grid(props: GridProps) {
-  const [sound, setSound] = useState("");
+  const [audio, setAudio] = useState(emptyAudio);
 
   const firstUpdate = useRef(true);
 
@@ -36,13 +36,11 @@ function Grid(props: GridProps) {
       firstUpdate.current = false;
       return;
     }
-    if (sound) {
-      var newAudio = new Audio(`./sounds/${sound}`);
-      newAudio.volume = 0.5;
 
-      newAudio.play();
+    if (audio) {
+      audio.play();
     }
-  }, [sound]);
+  }, [audio]);
 
   return (
     <div className="grid-container">
@@ -54,7 +52,13 @@ function Grid(props: GridProps) {
               className="square"
               style={{ backgroundColor: getRandomColor() }}
               onClick={() => {
-                setSound(sounds[index]);
+                var sound = sounds[index];
+                if (sound) {
+                  audio.pause();
+                  var newAudio = new Audio(`./sounds/${sounds[index]}`);
+                  newAudio.volume = 0.5;
+                  setAudio(newAudio);
+                }
               }}
             >
               <p className="innerText">{sounds[index]}</p>
