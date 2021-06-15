@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import Countdown from "../pages/Countdown";
 
 const Home = lazy(() => import("../pages/Home"));
+
+const Countdown = lazy(() => import("../pages/Countdown"));
 
 function Routes() {
   return (
