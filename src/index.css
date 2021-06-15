@@ -20,11 +20,13 @@ body {
 }
 
 .innerText {
+  pointer-events: none;
   mix-blend-mode: overlay;
   opacity: 1;
 }
 
 .grid-container > div {
+  user-select: none;
   background-color: #eee;
   padding: 1em;
   transition-duration: 500ms;
