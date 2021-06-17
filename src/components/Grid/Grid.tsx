@@ -22,6 +22,7 @@ const sounds: string[] = [
   "hillaryisinhim.mp3",
   "mattaah.mp3",
   "reed_nut.wav",
+"tomsabitch.mp3",
 ];
 
 const emptyAudio = new Audio();
