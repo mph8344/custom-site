@@ -22,7 +22,12 @@ const sounds: string[] = [
   "hillaryisinhim.mp3",
   "mattaah.mp3",
   "reed_nut.wav",
-"tomsabitch.mp3",
+  "tomsabitch.mp3",
+  "kylerobbing.mp3",
+  "momsgettinrailed.mp3",
+  "tomthehealslut.mp3",
+  "tminz_woah.mp3",
+  "pulledout.mp3",
 ];
 
 const emptyAudio = new Audio();
