@@ -1,1 +1,2 @@
-export { sounds, soundNames } from "./Sounds";
+// export { sounds, soundNames } from "./Sounds";
+export { default } from "./Sounds";

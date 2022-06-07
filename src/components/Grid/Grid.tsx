@@ -1,4 +1,5 @@
 import Square from "../Square";
+import soundProfiles from "../Sounds";
 
 type GridProps = {
   withSound: boolean;
@@ -7,15 +8,17 @@ type GridProps = {
 function Grid(props: GridProps) {
   return (
     <div className="grid-container">
-      {[...Array(16)].map((e, index) => {
+      {[...soundProfiles].map((profile, index) => {
         if (props.withSound) {
           return (
-            <Square key={`square${index}`} thisIdx={index} withSound={true} />
+            <Square
+              key={`square${index}`}
+              sound={profile.sound}
+              title={profile.title}
+            />
           );
         } else {
-          return (
-            <Square key={`square${index}`} thisIdx={index} withSound={false} />
-          );
+          return <Square key={`square${index}`} />;
         }
       })}
     </div>

@@ -1,5 +1,4 @@
 import useSound from "use-sound";
-import { soundNames, sounds } from "../Sounds";
 
 function randomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -12,23 +11,23 @@ function getRandomColor(): string {
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
-type SquareProps = {
-  thisIdx: number;
-  withSound: boolean;
-};
+interface SquareProps {
+  sound?: any;
+  title?: string;
+}
 
 function Square(props: SquareProps) {
-  const [play] = useSound(sounds[props.thisIdx]);
+  const [play] = useSound(props?.sound);
   var colorString = getRandomColor();
 
-  if (props.withSound) {
+  if (props) {
     return (
       <div
         className="square"
         style={{ backgroundColor: colorString }}
         onClick={() => play()}
       >
-        {soundNames[props.thisIdx]}
+        {props.title}
       </div>
     );
   } else {

@@ -9,40 +9,34 @@ import momsgettinrailed from "../../assets/sounds/momsgettinrailed.mp3";
 import tomthehealslut from "../../assets/sounds/tomthehealslut.mp3";
 import tminz_woah from "../../assets/sounds/tminz_woah.mp3";
 import pulledout from "../../assets/sounds/pulledout.mp3";
+import elftom from "../../assets/sounds/elf_tom.mp3";
 
-export const sounds = [
-  beandip,
-  brandonplayapek,
-  hedontbox,
-  hillaryisinhim,
-  mattaah,
-  tomsabitch,
-  kylerobbing,
-  momsgettinrailed,
-  tomthehealslut,
-  tminz_woah,
-  pulledout,
-  null,
-  null,
-  null,
-  null,
+interface SoundProfile {
+  sound: any;
+  title: string;
+}
+
+function makeSoundProfile(sound: any, title: string): SoundProfile {
+  return { sound, title };
+}
+
+const soundProfiles: SoundProfile[] = [
+  makeSoundProfile(beandip, "beandip"),
+  makeSoundProfile(brandonplayapek, "BrandonPlayApek"),
+  makeSoundProfile(hedontbox, "hedontbox"),
+  makeSoundProfile(hillaryisinhim, "hillaryisinhim"),
+  makeSoundProfile(mattaah, "mattaah"),
+  makeSoundProfile(tomsabitch, "tomsabitch"),
+  makeSoundProfile(kylerobbing, "kylerobbing"),
+  makeSoundProfile(momsgettinrailed, "momsgettinrailed"),
+  makeSoundProfile(tomthehealslut, "tomthehealslut"),
+  makeSoundProfile(tminz_woah, "tminz_woah"),
+  makeSoundProfile(pulledout, "pulledout"),
+  makeSoundProfile(elftom, "gnomeboy"),
+  makeSoundProfile(null, ""),
+  makeSoundProfile(null, ""),
+  makeSoundProfile(null, ""),
+  makeSoundProfile(null, ""),
 ];
 
-export const soundNames: string[] = [
-  "beandip",
-  "BrandonPlayApek",
-  "hedontbox",
-  "hillaryisinhim",
-  "mattaah",
-  "tomsabitch",
-  "kylerobbing",
-  "momsgettinrailed",
-  "tomthehealslut",
-  "tminz_woah",
-  "pulledout",
-  "",
-  "",
-  "",
-  "",
-  "",
-];
+export default soundProfiles;
