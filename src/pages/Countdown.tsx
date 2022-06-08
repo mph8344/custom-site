@@ -4,7 +4,7 @@ import { useState } from "react";
 function Countdown() {
   const [innerText, setText] = useState("");
 
-  var countDownDate = new Date("Aug 19, 2021 00:00:00").getTime();
+  var countDownDate = new Date("Dec 7, 2023 00:00:00").getTime();
 
   const fun = setInterval(function () {
     var now = new Date().getTime();
@@ -23,7 +23,7 @@ function Countdown() {
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(fun);
-      setText("Move In :)");
+      setText("We done");
     }
   }, 1000);
 
