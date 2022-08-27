@@ -29,10 +29,12 @@ function Countdown() {
 
   return (
     <>
-      <div className="dae-container" id="demo">
-        {innerText}
+      <div className="encapsulator">
+        <div className="dae-container" id="demo">
+          {innerText}
+        </div>
+        <Grid withSound={false} />
       </div>
-      <Grid withSound={false} />
     </>
   );
 }
