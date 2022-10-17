@@ -22,13 +22,13 @@
   }
 }
 
-.drawerContainer {
+.drawer-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.drawerButton {
+.drawer-button {
   cursor: pointer;
   width: 100%;
   font-weight: bold;
@@ -45,13 +45,19 @@
     background-color: #c4c4c4;
   }
 
-  .buttonText {
+  .button-text {
     padding-left: 15px;
+    width: 100%;
   }
 
   &:first-child {
     border: none;
   }
+}
+
+a {
+  color: unset;
+  text-decoration: none;
 }
 
 // .overlay {

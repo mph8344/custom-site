@@ -5,24 +5,24 @@
 
   grid-template-columns: repeat(4, 25%);
   grid-auto-rows: 25%;
-}
 
-.grid-container > div,
-a {
-  user-select: none;
-  background-color: #eee;
-  padding: 1em;
-  transition-duration: 500ms;
-  opacity: 0;
-  color: white;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  cursor: pointer;
+  div,
+  a {
+    user-select: none;
+    background-color: #eee;
+    padding: 1em;
+    transition-duration: 500ms;
+    opacity: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
 
-  &.untitled {
-    cursor: default;
+    &.untitled {
+      cursor: default;
+    }
   }
 }
 
