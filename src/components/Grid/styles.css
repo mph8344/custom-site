@@ -1,0 +1,61 @@
+.g-container {
+  display: grid;
+
+  grid-template-columns: repeat(4, 150px);
+  grid-row-end: 4;
+  /* grid-auto-rows: 25vh; */
+  background: #121212;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.square-wrapper {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.musicSquare {
+  /* border-radius: 5px; */
+  aspect-ratio: 1/1;
+  user-select: none;
+  padding: 1em;
+  transition-duration: 500ms;
+  opacity: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  /* border: white solid 2px; */
+}
+
+@media (min-width: 800px) {
+  .musicSquare:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+  .g-container > div {
+    animation: pulse 8s infinite;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .g-container > div {
+    animation: pulse 8s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0;
+  }
+}

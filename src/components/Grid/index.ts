@@ -1,1 +1,4 @@
-export { default } from "./Grid";
+import MusicGrid from './MusicGrid';
+import Grid from './Grid';
+
+export { MusicGrid, Grid };
