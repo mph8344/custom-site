@@ -1,3 +1,4 @@
+// import { Link } from "react-router-dom";
 import useSound from "use-sound";
 
 function randomInt(max: number) {
@@ -20,7 +21,7 @@ function Square(props: SquareProps) {
   const [play] = useSound(props?.sound);
   var colorString = getRandomColor();
 
-  if (props) {
+  if (props.sound && props.title) {
     return (
       <div
         className="square"
@@ -31,10 +32,25 @@ function Square(props: SquareProps) {
       </div>
     );
   } else {
+    //if (props.title === "") {
     return (
-      <div className="square" style={{ backgroundColor: colorString }}></div>
+      <div
+        className="square untitled"
+        style={{ backgroundColor: colorString }}
+        onClick={() => {}}
+      ></div>
     );
   }
+  // else {
+  //   return (
+  //     // <Link
+  //     //   to="/soundboard"
+  //     //   className="square"
+  //     //   style={{ backgroundColor: colorString }}
+  //     //   onClick={() => {}}
+  //     // ></Link>
+  //   );
+  // }
 }
 
 export default Square;

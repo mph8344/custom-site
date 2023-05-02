@@ -1,5 +1,6 @@
-import Square from "../Square";
+import Square from "./Square";
 import soundProfiles from "../Sounds";
+import "./Grid.scss";
 
 type GridProps = {
   withSound: boolean;

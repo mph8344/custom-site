@@ -1,7 +1,7 @@
 // import Square from '../Square';
 import soundProfiles from '../Sounds';
 import useSound from 'use-sound';
-import './styles.css';
+import './styles.scss';
 
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -78,7 +78,7 @@ function MusicSquare(props: SquareProps) {
 
 export default function MusicGrid() {
   return (
-    <div className='g-container'>
+    <div className='soundboard-wrapper'>
       {[...soundProfiles].map((profile, index) => {
         return (
           <MusicSquare
