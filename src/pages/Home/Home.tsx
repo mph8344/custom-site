@@ -1,37 +1,38 @@
 import './Home.scss';
-import { Grid, MusicGrid } from '../../components/Grid';
-import { useState } from 'react';
 import Drawer from '../../components/Drawer';
 import Backdrop from '../../components/Backdrop';
+import Routes from '../../Routes';
+import { Link, NavLink } from 'react-router-dom';
 
 function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDrawer = () => setIsOpen(!isOpen);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggleDrawer = () => setIsOpen(!isOpen);
+
+  const navToSoundboard = () => {};
 
   return (
-    <>
-      <Drawer isOpen={isOpen}></Drawer>
-      <Backdrop onClick={toggleDrawer} isOpen={isOpen}></Backdrop>
-
-      <div className='header'>
-        <div onClick={toggleDrawer} className='dae-header'>
-          DAE-ONE.XYZ
+    <div className='home-body'>
+      <div className='content-body'>
+        <div className='content'>
+          <Routes />
         </div>
       </div>
-
-      <div className='main-body'>
-        <div className='content-left'>
-          <Grid withSound={false}></Grid>
-          {/* <MusicGrid></MusicGrid> */}
-        </div>
-        <div className='divider'>
-          <div className='silly-box'></div>
-        </div>
-        <div className='content-right'>
-          <div className='text'></div>
+      <div className='navigation'>
+        <div className='nav-content'>
+          <div className='title-box'>Matt Hills</div>
+          <div className='button-container'>
+            <NavLink className='button' exact to={'/'}>
+              home
+            </NavLink>
+            {/* <div className='button'>about me</div>
+            <div className='button'>contact</div> */}
+            <NavLink className='button' to={'soundboard'}>
+              soundboard
+            </NavLink>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

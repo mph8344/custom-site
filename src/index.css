@@ -1,4 +1,5 @@
 @import url('https://use.typekit.net/tpf4vai.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 body {
   position: absolute;
@@ -9,7 +10,7 @@ body {
   overflow: hidden;
   padding: 0;
   margin: 0;
-  background-color: #1e1e1e;
+  background-color: #011c27;
 }
 
 .encapsulator {
@@ -57,4 +58,27 @@ body {
 
 #demo {
   font-size: 7.5vw;
+}
+/* 
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 450ms linear 250ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms linear;
+} */
+
+.routed-page {
+  width: 100%;
+  height: 100%;
 }

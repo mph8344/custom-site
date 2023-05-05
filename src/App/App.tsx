@@ -1,8 +1,10 @@
-import Routes from "../Routes";
-import "./App.css";
+import Routes from '../Routes';
+import GridPage from '../pages/Home';
+import Home from '../pages/Home/Home';
+import './App.css';
 
 function App() {
-  return <Routes />;
+  return <Home />;
 }
 
 export default App;
