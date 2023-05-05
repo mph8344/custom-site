@@ -4,7 +4,7 @@ function GridPage() {
   return (
     <>
       <div className='dae-container'>DAE</div>
-      <Grid withSound={false} />
+      <Grid />
     </>
   );
 }
