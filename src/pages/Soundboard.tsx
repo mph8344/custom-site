@@ -22,7 +22,10 @@ function Soundboard() {
           <MusicGrid />
         </div>
       </div>
-      <div className='password-holder' style={{ opacity: auth ? 0 : 1 }}>
+      <div
+        className='password-holder'
+        style={{ opacity: auth ? 0 : 1, pointerEvents: auth ? 'none' : 'auto' }}
+      >
         <div className='password-field'>
           <Form onSubmit={(event) => event.preventDefault()}>
             <Form.Group className='mb-3' controlId='formBasicPassword'>
