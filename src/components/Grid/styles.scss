@@ -37,13 +37,13 @@
 }
 
 @media (max-width: 800px) and (orientation: portrait) {
-  .soundboard-wrapper > div {
+  .square-wrapper > div {
     animation: pulse 8s infinite;
   }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-  .soundboard-wrapper > div {
+  .square-wrapper > div {
     animation: pulse 8s infinite;
   }
 }
