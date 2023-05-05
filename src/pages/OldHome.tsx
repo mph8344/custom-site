@@ -1,12 +1,12 @@
 import { Grid } from '../components/Grid';
 
-function Home() {
+function GridPage() {
   return (
     <>
       <div className='dae-container'>DAE</div>
-      <Grid withSound={false} />
+      <Grid />
     </>
   );
 }
 
-export default Home;
+export default GridPage;

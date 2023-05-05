@@ -1,28 +1,26 @@
-import Square from "./Square";
-import soundProfiles from "../Sounds";
-import "./Grid.scss";
+import Square from './Square';
+import soundProfiles from '../Sounds';
+import './Grid.scss';
+import { useState } from 'react';
 
-type GridProps = {
-  withSound: boolean;
-};
+function Grid() {
+  const [hovered, setHover] = useState(false);
 
-function Grid(props: GridProps) {
+  const hideText = () => {
+    setHover(true);
+  };
+
   return (
-    <div className="grid-container">
-      {[...soundProfiles].map((profile, index) => {
-        if (props.withSound) {
-          return (
-            <Square
-              key={`square${index}`}
-              sound={profile.sound}
-              title={profile.title}
-            />
-          );
-        } else {
+    <>
+      <div className='hover-text' style={{ opacity: hovered ? 0 : 1 }}>
+        Hover me :)
+      </div>
+      <div className='grid-container' onMouseOver={hideText}>
+        {[...soundProfiles].map((profile, index) => {
           return <Square key={`square${index}`} />;
-        }
-      })}
-    </div>
+        })}
+      </div>
+    </>
   );
 }
 

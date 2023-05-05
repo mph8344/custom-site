@@ -1,4 +1,3 @@
-// import Square from '../Square';
 import soundProfiles from '../Sounds';
 import useSound from 'use-sound';
 import './styles.scss';
@@ -36,16 +35,12 @@ function generateBackgroundColorAndTextColor(): [string, string] {
   return [backgroundHsl, textColor];
 }
 
-function randomInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
-function getRandomColor(): string {
-  var red = randomInt(255);
-  var blue = randomInt(255);
-  var green = randomInt(255);
-  return `rgb(${red}, ${green}, ${blue})`;
-}
+// function getRandomColor(): string {
+//   var red = randomInt(255);
+//   var blue = randomInt(255);
+//   var green = randomInt(255);
+//   return `rgb(${red}, ${green}, ${blue})`;
+// }
 
 interface SquareProps {
   sound?: any;
