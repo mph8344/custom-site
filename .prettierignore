@@ -1,0 +1,13 @@
+node_modules/
+android/
+.idea/
+.expo/
+dist/
+
+babel.config.js
+metro.config.js
+webpack.config.js
+declarations.d.ts
+
+src/components/svgs/*
+*.code-workspace

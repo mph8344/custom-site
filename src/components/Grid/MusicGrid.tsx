@@ -1,6 +1,9 @@
-import soundProfiles from '../Sounds';
-import useSound from 'use-sound';
+// import useSound from 'use-sound';
+import { isNil, range } from 'lodash';
 import './styles.scss';
+import type React from 'react';
+import { sounds } from '../Sounds/Sounds';
+import { useRef } from 'react';
 
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -43,43 +46,61 @@ function generateBackgroundColorAndTextColor(): [string, string] {
 // }
 
 interface SquareProps {
-  sound?: any;
   title?: string;
+  onPlay: (audioFile?: string) => void;
 }
 
-function MusicSquare(props: SquareProps) {
-  const [play] = useSound(props?.sound);
+const MusicSquare: React.FC<SquareProps> = ({ title, onPlay }) => {
+  const play = () => {
+    onPlay(title);
+    // if (isNil(title)) {
+    //   return;
+    // }
+
+    // const audio = new Audio(`/sounds/${title}.mp3`);
+    // audio.play();
+  };
 
   const [colorString, text] = generateBackgroundColorAndTextColor();
 
-  if (props) {
-    return (
-      <div className='square-wrapper'>
-        <div
-          className='musicSquare'
-          style={{ backgroundColor: colorString, color: text }}
-          onClick={() => play()}
-        >
-          {props.title}
-        </div>
+  return (
+    <div className='square-wrapper'>
+      <div
+        className='musicSquare'
+        style={{ backgroundColor: colorString, color: text }}
+        onClick={play}
+      >
+        {title}
       </div>
-    );
-  } else {
-    return (
-      <div className='square' style={{ backgroundColor: colorString }}></div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default function MusicGrid() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const playAudio = (audioFile?: string) => {
+    if (isNil(audioFile)) {
+      return;
+    }
+
+    if (!isNil(audioRef.current)) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    audioRef.current = new Audio(`/sounds/${audioFile}.mp3`);
+    audioRef.current.play();
+  };
+
   return (
     <div className='soundboard-wrapper'>
-      {[...soundProfiles].map((profile, index) => {
+      {range(0, 16).map((index) => {
         return (
           <MusicSquare
+            onPlay={playAudio}
             key={`square${index}`}
-            sound={profile.sound}
-            title={profile.title}
+            title={sounds[index]}
           />
         );
       })}

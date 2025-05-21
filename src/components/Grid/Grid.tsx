@@ -1,7 +1,7 @@
 import Square from './Square';
-import soundProfiles from '../Sounds';
 import './Grid.scss';
 import { useState } from 'react';
+import { range } from 'lodash';
 
 function Grid() {
   const [hovered, setHover] = useState(false);
@@ -11,16 +11,16 @@ function Grid() {
   };
 
   return (
-    <>
+    <div className='grid-container'>
       <div className='hover-text' style={{ opacity: hovered ? 0 : 1 }}>
-        Hover me :)
+        {'Hover me :)'}
       </div>
-      <div className='grid-container' onMouseOver={hideText}>
-        {[...soundProfiles].map((profile, index) => {
+      <div className='grid-display' onMouseOver={hideText}>
+        {range(0, 16).map((index) => {
           return <Square key={`square${index}`} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 

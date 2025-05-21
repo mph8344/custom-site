@@ -1,4 +1,4 @@
-import "./Backdrop.scss";
+import './Backdrop.scss';
 
 interface BackdropProps {
   isOpen: boolean;
@@ -6,7 +6,7 @@ interface BackdropProps {
 }
 
 function Backdrop(props: BackdropProps) {
-  const overlayClass = props.isOpen ? "overlay show" : "overlay hide";
+  const overlayClass = props.isOpen ? 'overlay show' : 'overlay hide';
 
   return <div onClick={props.onClick} className={overlayClass}></div>;
 }
