@@ -2,8 +2,8 @@
 import { isNil, range } from 'lodash';
 import './styles.scss';
 import type React from 'react';
-import { sounds } from '../Sounds/Sounds';
 import { useRef } from 'react';
+import { sounds } from '../Sounds/sounds';
 
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;

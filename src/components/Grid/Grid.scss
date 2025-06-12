@@ -1,12 +1,12 @@
 .grid-container {
   position: relative;
+  display: flex;
+  flex-grow: 1;
 }
 
 .grid-display {
-  min-height: 500px;
-  aspect-ratio: 1;
-
   display: grid;
+  flex-grow: 1;
 
   border: 1px solid white;
 
