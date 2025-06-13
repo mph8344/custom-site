@@ -11,6 +11,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --mint: #f4fff8;
+
+  --carmine: #9b1d20;
+  --water: #345995;
+  --waterRGB: rgba(52, 89, 149, 1);
+  --saffron: #eac435;
+  --magnolia: #f5f0f6;
 }
 
 a {
@@ -46,6 +54,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
