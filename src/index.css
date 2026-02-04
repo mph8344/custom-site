@@ -12,13 +12,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --mint: #f4fff8;
+  /* --mint: #f4fff8; */
 
   --carmine: #9b1d20;
   --water: #345995;
+  --mint: #61c9a8;
   --waterRGB: rgba(52, 89, 149, 1);
   --saffron: #eac435;
   --magnolia: #f5f0f6;
+  --night: #0c0c0c;
+  --richBlack: #011c27;
+
+  --whiteHSL: 290, 25, 95;
+  --blackHSL: 197deg, 15%, 8%;
+
+  --black: rgba(var(--blackHSL), 1);
+  --hoverBlack: hsl(var(--blackHSL), 0.1);
+}
+
+div {
+  box-sizing: border-box;
 }
 
 a {
@@ -74,4 +87,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }

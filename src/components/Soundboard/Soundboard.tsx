@@ -13,7 +13,7 @@ function generateBackgroundColorAndTextColor(): [string, string] {
   const hue = getRandomInt(0, 359);
   const saturation = getRandomInt(40, 100);
   const lightness = getRandomInt(20, 80);
-
+ 
   const backgroundHsl = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
   const threshold = 60;
