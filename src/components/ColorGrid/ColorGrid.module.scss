@@ -1,20 +1,49 @@
-.grid-container {
-  position: relative;
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0;
+  }
 }
 
-.grid-display {
-  min-height: 500px;
-  aspect-ratio: 1;
+.colorGrid {
+  // Occupy the entire container
+  width: 100%;
+  max-width: 400px;
+
+  aspect-ratio: 1 / 1;
 
   display: grid;
 
-  border: 1px solid white;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-1);
 
   grid-template-columns: repeat(4, 25%);
   grid-auto-rows: 25%;
-}
+  overflow: hidden;
 
-.grid-display {
+  @media (min-width: 800px) {
+    .square:hover {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 800px) and (orientation: portrait) {
+    .square {
+      animation: pulse 8s infinite;
+    }
+  }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .square {
+      animation: pulse 8s infinite;
+    }
+  }
+
   .square {
     user-select: none;
     background-color: #eee;
@@ -31,36 +60,6 @@
     &.untitled {
       cursor: default;
     }
-  }
-}
-
-@media (min-width: 800px) {
-  .square:hover {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 800px) and (orientation: portrait) {
-  .square {
-    animation: pulse 8s infinite;
-  }
-}
-
-@media (max-width: 900px) and (orientation: landscape) {
-  .square {
-    animation: pulse 8s infinite;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.5;
-  }
-  80% {
-    opacity: 0;
   }
 }
 

@@ -1,0 +1,177 @@
+// Pine Theme - #243c2a
+// Comprehensive theme system with dark and light modes
+
+// ============================================
+// DARK THEME (Default)
+// ============================================
+.pine-dark,
+:root {
+  // Semantic color stops - generated from #243c2a
+  --pine-50: #f4f9f6;
+  --pine-100: #e8f3ed;
+  --pine-200: #d0e6db;
+  --pine-300: #b8d9c9;
+  --pine-400: #7fbe9f;
+  --pine-500: #469f7f;
+  --pine-600: #3a8b6f;
+  --pine-700: #2e765f;
+  --pine-800: #25624f;
+  --pine-900: #1c4e3f;
+  --pine-950: #0f2819;
+
+  // Primary base
+  --pine-primary: #243c2a;
+
+  // Dark theme specific
+  --bg-primary: #0f1311;
+  --bg-secondary: #1a1f1d;
+  --bg-tertiary: #242b28;
+  --bg-surface: #2d3532;
+
+  --text-primary: #f4f9f6;
+  --text-secondary: #c0cac6;
+  --text-tertiary: #8a9390;
+  --text-muted: #5a6360;
+
+  --border-primary: #3d4845;
+  --border-secondary: #2d3532;
+
+  // Semantic colors
+  --success: #469f7f;
+  --warning: #d68b4a;
+  --error: #e85d5d;
+  --info: #5ba8d6;
+
+  // Surfaces for components
+  --surface-overlay: rgba(15, 19, 17, 0.8);
+  --surface-hover: #242b28;
+  --surface-active: #2d3532;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.7);
+
+  // Aliases for common usage
+  --theme-bg: var(--bg-primary);
+  --theme-text: var(--text-primary);
+  --theme-border: var(--border-primary);
+
+  --theme-bg: var(--bg-primary);
+  --theme-text: var(--text-primary);
+  --theme-border: var(--border-primary);
+
+  --theme-btn-bg: var(--pine-700);
+  --theme-btn-text: var(--text-primary);
+  --theme-btn-border: var(--border-primary);
+  --theme-btn-hover: var(--pine-600);
+  --theme-btn-active: var(--pine-800);
+}
+
+// ============================================
+// LIGHT THEME
+// ============================================
+.pine-light {
+  // Light theme specific
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9faf8;
+  --bg-tertiary: #f0f3f1;
+  --bg-surface: #e8ebe9;
+
+  --text-primary: #0f1311;
+  --text-secondary: #3a403e;
+  --text-tertiary: #6a7370;
+  --text-muted: #9da6a2;
+
+  --border-primary: #d0d6d3;
+  --border-secondary: #dfe3e1;
+
+  // Semantic colors (adjusted for light theme)
+  --success: #2e765f;
+  --warning: #c77a35;
+  --error: #d64646;
+  --info: #3a7ba6;
+
+  // Surfaces for components
+  --surface-overlay: rgba(255, 255, 255, 0.9);
+  --surface-hover: #f0f3f1;
+  --surface-active: #e8ebe9;
+
+  // Shadows (lighter for light theme)
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12);
+
+  // Aliases for common usage
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Apply theme colors to common elements
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+// button {
+//   background-color: var(--pine-700);
+//   color: var(--text-primary);
+//   border: 1px solid var(--border-primary);
+
+//   &:hover {
+//     background-color: var(--pine-600);
+//   }
+
+//   &:active {
+//     background-color: var(--pine-800);
+//   }
+// }
+
+input,
+textarea,
+select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+
+  &:focus {
+    border-color: var(--pine-500);
+    outline: none;
+  }
+}
+
+a {
+  color: var(--pine-500);
+
+  &:visited {
+    color: var(--pine-600);
+  }
+
+  &:hover {
+    color: var(--pine-400);
+  }
+}
+
+// ============================================
+// COLOR PALETTE REFERENCE
+// ============================================
+// Pine Color Scale (Light to Dark):
+// --pine-50:   #f4f9f6  (almost white)
+// --pine-100:  #e8f3ed  (very light)
+// --pine-200:  #d0e6db  (light)
+// --pine-300:  #b8d9c9  (light-medium)
+// --pine-400:  #7fbe9f  (medium-light)
+// --pine-500:  #469f7f  (medium)
+// --pine-600:  #3a8b6f  (medium-dark)
+// --pine-700:  #2e765f  (dark)
+// --pine-800:  #25624f  (darker)
+// --pine-900:  #1c4e3f  (very dark)
+// --pine-950:  #0f2819  (almost black)
+//
+// Usage Examples:
+// Dark backgrounds:    --pine-950, --pine-900, --pine-800
+// Medium backgrounds:  --pine-700, --pine-600, --pine-500
+// Light backgrounds:   --pine-100, --pine-50
+// Text/Accents:        --pine-300, --pine-400, --pine-500

@@ -25,7 +25,7 @@
     .volumeSlider {
       box-sizing: border-box;
       position: relative;
-      border: 1px solid var(--magnolia);
+      border: 1px solid;
 
       display: flex;
       padding: 20px;
@@ -80,7 +80,7 @@
     }
 
     .buttonController {
-      border: 1px solid var(--magnolia);
+      border: 1px solid transparent;
       border-radius: 5px;
       padding: 10px;
       margin: auto;

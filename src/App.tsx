@@ -1,14 +1,27 @@
-import { Route, Routes } from 'react-router';
-// import './App.css';
+import { Navigate, Route, Routes } from 'react-router';
 import { HomeScreen } from './features/home/HomeScreen';
-import { SoundboardView } from './components/Soundboard/Soundboard';
+
+import './styling/global.scss';
+import type React from 'react';
+import type { PropsWithChildren } from 'react';
+
+const PageNotFound = () => {
+  return <div>Page not Found</div>;
+};
+
+const AppWrapper: React.FC<PropsWithChildren> = ({ children }) => {
+  return <div className='app palm'>{children}</div>;
+};
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' index element={<HomeScreen />} />
-      <Route path='/soundboard' index element={<SoundboardView />} />
-    </Routes>
+    <AppWrapper>
+      <Routes>
+        <Route path='/' index element={<HomeScreen />} />
+        {/* <Route path='/soundboard' index element={<SoundboardView />} /> */}
+        <Route path='*' element={<Navigate to={'/'} />} />
+      </Routes>
+    </AppWrapper>
   );
 }
 
