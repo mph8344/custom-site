@@ -1,58 +1,4 @@
-// $themes: (
-//   light: (
-//     text: #0d4539,
-//     background: #e5faf0,
-//     primary: #69a579,
-//     primary-light: lighten(#68a478, 15%),
-//     primary-dark: darken(#68a478, 15%),
-//     secondary: #58abbb,
-//     accent: #f2e891,
-//   ),
-//   dark: (
-//     text: #b9f2e6,
-//     background: #051a10,
-//     primary: #5a966a,
-//     primary-light: lighten(#5a966a, 15%),
-//     primary-dark: darken(#5a966a, 15%),
-//     secondary: #4496a7,
-//     accent: #6e640d,
-//   ),
-// );
-
-// // @mixin theme($theme-name) {
-// //   $theme: map-get($themes, $theme-name);
-
-// //   --text: #{map-get($theme, 'text')};
-// //   --background: #{map-get($theme, 'background')};
-// //   --primary: #{map-get($theme, 'primary')};
-// //   --secondary: #{map-get($theme, 'secondary')};
-// //   --accent: #{map-get($theme, 'accent')};
-// // }
-
-// @function generate-shades($color, $count: 5) {
-//   $shades: ();
-//   @for $i from 1 through $count {
-//     $lightness-adjust: (($i - 1) / ($count - 1)) * 50% - 25%;
-//     $shade: adjust-color($color, $lightness: $lightness-adjust);
-//     $shades: append($shades, $shade);
-//   }
-//   @return $shades;
-// }
-
-// @mixin theme($theme-name) {
-//   $theme: map-get($themes, $theme-name);
-
-//   @each $color-name, $color-value in $theme {
-//     // Expose base color
-//     --#{$color-name}: #{$color-value};
-
-//     // Auto-generate and expose variations
-//     $shades: generate-shades($color-value, 5);
-//     @for $i from 1 through length($shades) {
-//       --#{$color-name}-#{$i}: #{nth($shades, $i)};
-//     }
-//   }
-// }
+@use './styling/themes/raspberry.scss';
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -77,13 +23,11 @@
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-size: 14px;
+  // font-size: 14px;
 
   color-scheme: light dark;
   // color: rgba(255, 255, 255, 0.87);
-  color: var(--text);
-
-  // background-color: var(--background);
+  // color: var(--text);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -113,6 +57,11 @@
   --tr-duration-1: 200ms;
   --tr-duration-2: 500ms;
 
+  /* Gaps */
+  --gap-1: 4px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+
   --radius-1: 4px;
   --radius-2: 8px;
   --radius-3: 10px;
@@ -122,142 +71,18 @@
   --padding-2: 8px;
   --padding-3: 12px;
   --padding-4: 16px;
+  --padding-5: 20px;
+  --padding-6: 24px;
 }
 
-.app {
-  background-color: var(--theme-bg);
-
-  overflow: hidden;
-}
-
-// :root {
-//   @include theme('dark');
-
-//   @media (prefers-color-scheme: light) {
-//     @include theme('light');
-//   }
-// }
-
-// .theme {
-//   --bg-dark: hsl(43 61% 85%);
-//   --bg: hsl(43 96% 91%);
-//   --bg-light: hsl(43 100% 96%);
-//   --text: hsl(22 100% 4%);
-//   --text-muted: hsl(47 100% 15%);
-//   --highlight: hsl(43 100% 91%);
-//   --border: hsl(44 43% 41%);
-//   --border-muted: hsl(43 38% 53%);
-//   --primary: hsl(47 100% 14%);
-//   --secondary: hsl(226 43% 34%);
-//   --danger: hsl(8 36% 41%);
-//   --warning: hsl(52 58% 28%);
-//   --success: hsl(152 45% 31%);
-//   --info: hsl(217 38% 43%);
-// }
-
-// @media (prefers-color-scheme: dark) {
-//   .theme {
-//     --bg-dark: hsl(24 100% 1%);
-//     --bg: hsl(34 100% 3%);
-//     --bg-light: hsl(42 100% 6%);
-//     --text: hsl(43 100% 86%);
-//     --text-muted: hsl(43 45% 61%);
-//     --highlight: hsl(45 63% 29%);
-//     --border: hsl(47 100% 15%);
-//     --border-muted: hsl(44 100% 8%);
-//     --primary: hsl(43 50% 59%);
-//     --secondary: hsl(224 77% 77%);
-//     --danger: hsl(9 47% 65%);
-//     --warning: hsl(51 32% 52%);
-//     --success: hsl(149 31% 55%);
-//     --info: hsl(217 52% 67%);
-//   }
-// }
-
-div {
-  box-sizing: border-box;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-button {
-  background-color: none;
-  border: none;
-  cursor: pointer;
-  width: fit-content;
-  padding: var(--padding-3);
-  border-radius: var(--radius-2);
-  font-size: 1rem;
-  font-weight: 600;
-
-  transition-duration: var(--tr-duration-1);
-
-  // --button-hover-color: var(--text);
-
-  // border-radius: var(--radius-1);
-  // border: 2px solid transparent;
-  // padding: 10px;
-  // font-size: 1.2rem;
-  // font-weight: 500;
-  // font-family: inherit;
-  // box-sizing: border-box;
-
-  // color: var(--text);
-  // background-color: var(--primary);
-
-  // cursor: pointer;
-  // transition: border-color 0.25s;
-
-  // &:hover {
-  //   border-color: var(--button-hover-color);
-  // }
-}
-
-button {
-  background-color: var(--theme-btn-bg);
-  color: var(--theme-btn-text);
-  // border: 1px solid var(--theme-btn-border);
-
-  &:hover {
-    background-color: var(--theme-btn-hover);
-  }
-
-  &:active {
-    background-color: var(--theme-btn-active);
-  }
+  box-sizing: border-box;
 }
 
 button[data-variant='primary'] {
   --button-hover-color: var(--primary-dark-1);
 }
-
-// @media (prefers-color-scheme: light) {
-//   :root {
-//     color: #213547;
-//     background-color: #ffffff;
-//   }
-//   a:hover {
-//     color: #747bff;
-//   }
-//   button {
-//     background-color: #f9f9f9;
-//   }
-// }
 
 .flexbox {
   display: flex;
@@ -266,4 +91,15 @@ button[data-variant='primary'] {
 
 .flex-col {
   flex-direction: column;
+}
+
+.material-symbols-outlined {
+  &.filled,
+  &[data-filled='true'] {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
 }

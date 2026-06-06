@@ -1,0 +1,344 @@
+:root {
+  // ─── Brand Colors ───
+
+  // Raspberry Red
+  --rasp-primary: #5c0029;
+  --rasp-primary-light: #7a1945;
+  --rasp-primary-lighter: #9e3362;
+  --rasp-primary-dark: #3d001b;
+  --rasp-primary-darkest: #2a0013;
+
+  // ─── Surfaces ───
+  --rasp-bg: #140910;
+  --rasp-surface: #221218;
+  --rasp-surface-hover: #331c24;
+  --rasp-surface-raised: #2d1620;
+
+  // ─── Text ───
+  --rasp-text: #f5e6ed;
+  --rasp-text-muted: #a8899a;
+  --rasp-text-inverse: #140910;
+
+  // ─── Accent ───
+  --rasp-accent: #e84882;
+  --rasp-accent-hover: #d63a72;
+
+  // ─── Inputs ───
+  --rasp-input-bg: var(--rasp-bg);
+
+  // ─── Borders ───
+  --rasp-border-dark: #29151e;
+  --rasp-border: #4a2535;
+  --rasp-border-light: #5c3345;
+
+  // ─── Semantic ───
+  --rasp-success: #22c55e;
+  --rasp-error: #ef4444;
+  --rasp-error-dark: #b91c1c;
+  --rasp-warning: #f59e0b;
+
+  // ─── Overlays & Shadows ───
+  --rasp-overlay: rgba(0, 0, 0, 0.6);
+  --rasp-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --rasp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --rasp-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  // ─── Spacing (4-point scale) ───
+  --rasp-space-1: 4px;
+  --rasp-space-2: 8px;
+  --rasp-space-3: 12px;
+  --rasp-space-4: 16px;
+  --rasp-space-5: 20px;
+  --rasp-space-6: 24px;
+  --rasp-space-8: 32px;
+  --rasp-space-10: 40px;
+  --rasp-space-12: 48px;
+  --rasp-space-16: 64px;
+
+  // ─── Radii ───
+  --rasp-radius: 6px;
+  --rasp-radius-lg: 12px;
+  --rasp-radius-full: 999px;
+
+  // ─── Typography ───
+  --rasp-font-xs: 0.6875rem;
+  --rasp-font-sm: 0.8125rem;
+  --rasp-font-base: 0.9375rem;
+  --rasp-font-md: 0.9375rem;
+  --rasp-font-lg: 1.125rem;
+  --rasp-font-xl: 1.5rem;
+  --rasp-font-2xl: 2rem;
+
+  // ─── Transitions ───
+  --rasp-transition: 0.2s;
+
+  color: var(--rasp-text);
+  font-size: var(--rasp-font-base);
+
+  button {
+    border-radius: var(--rasp-radius);
+    align-items: center;
+    cursor: pointer;
+
+    display: flex;
+    font-size: var(--rasp-font-base);
+    transition:
+      background var(--rasp-transition),
+      color var(--rasp-transition),
+      border-color var(--rasp-transition);
+
+    border: none;
+
+    // Defaults
+    --rasp-button-bg-disabled: var(--rasp-surface);
+    --rasp-button-bg: none;
+    --rasp-button-bg-hover: var(--rasp-surface-hover);
+
+    &:disabled {
+      --btn-disabled: ;
+    }
+
+    &:hover,
+    &[data-active='true'] {
+      --btn-hover: ;
+    }
+
+    &[data-variant='primary'] {
+      --rasp-button-bg: var(--rasp-primary);
+      --rasp-button-bg-hover: var(--rasp-primary-light);
+      --rasp-button-bg-disabled: var(--rasp-primary-dark);
+
+      padding: var(--rasp-space-2) var(--rasp-space-3);
+      --rasp-button-font-size: var(--rasp-font-sm);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--rasp-space-2);
+      white-space: nowrap;
+    }
+
+    &[data-variant='secondary'] {
+      --rasp-button-bg: none;
+      --rasp-button-bg-hover: var(--rasp-surface-hover);
+
+      // Border
+
+      border-style: solid;
+      border-width: 1px;
+
+      --rasp-button-text: var(--rasp-text-muted);
+
+      padding: var(--rasp-space-2) var(--rasp-space-3);
+      --rasp-button-font-size: var(--rasp-font-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--rasp-space-2);
+      white-space: nowrap;
+
+      --rasp-button-border-color: var(--rasp-border);
+      --rasp-button-border-hover-color: var(--rasp-border-light);
+
+      &[data-destructive] {
+        --rasp-button-border-color: var(--rasp-error);
+        --rasp-button-border-hover-color: var(--rasp-error-dark);
+
+        --rasp-button-bg-hover: var(--rasp-error);
+
+        --rasp-button-text: var(--rasp-error);
+        --rasp-button-text-hover: var(--rasp-text);
+      }
+    }
+
+    // Background
+    --_rasp-color-bg-disabled: var(--btn-disabled)
+      var(--rasp-button-bg-disabled);
+    --_rasp-color-bg-hover: var(--btn-hover) var(--rasp-button-bg-hover);
+    --rasp-color-bg-default: var(--rasp-button-bg);
+
+    background-color: var(
+      --_rasp-color-bg-disabled,
+      var(--_rasp-color-bg-hover, var(--rasp-color-bg-default))
+    );
+
+    // Border Color
+    --_rasp-color-border-disabled: var(--btn-disabled)
+      var(--rasp-button-border-color);
+    --_rasp-color-border-hover: var(--btn-hover)
+      var(--rasp-button-border-hover-color);
+    --rasp-color-border-default: var(--rasp-button-border-color);
+
+    border-color: var(
+      --_rasp-color-border-disabled,
+      var(--_rasp-color-border-hover, var(--rasp-color-border-default))
+    );
+
+    // Text
+    --_rasp-color-text-disabled: var(--btn-disabled)
+      var(--rasp-button-text-disabled);
+    --_rasp-color-text-hover: var(--btn-hover) var(--rasp-button-text-hover);
+    --rasp-color-text-default: var(--rasp-button-text);
+
+    color: var(
+      --_rasp-color-text-disabled,
+      var(--_rasp-color-text-hover, var(--rasp-color-text-default))
+    );
+
+    font-size: var(--rasp-button-font-size, var(--rasp-font-sm));
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // ═══════════════════════════════════════════
+  // Button variants (use data-variant attribute)
+  // ═══════════════════════════════════════════
+
+  button[data-variant='secondary-accent'] {
+    background: none;
+    border: 1px solid var(--rasp-border);
+    color: var(--rasp-text-muted);
+    padding: var(--rasp-space-1) var(--rasp-space-2);
+    font-size: var(--rasp-font-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rasp-space-1);
+
+    &:hover:not(:disabled) {
+      border-color: var(--rasp-accent);
+      color: var(--rasp-accent);
+    }
+  }
+
+  button[data-variant='icon'] {
+    align-items: center;
+    justify-content: center;
+    padding: var(--rasp-space-1);
+    color: var(--rasp-text-muted);
+
+    &:hover:not(:disabled) {
+      color: var(--rasp-text);
+      background: var(--rasp-surface-hover);
+    }
+  }
+  button[data-variant='square'] {
+    align-items: center;
+    justify-content: center;
+    padding: var(--rasp-space-1);
+    color: var(--rasp-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--btn-bg-color);
+
+    &:hover:not(:disabled) {
+      color: var(--rasp-accent-hover);
+      background: var(--rasp-surface-raised);
+    }
+  }
+
+  button[data-variant='danger'] {
+    background: none;
+    // border: 1px solid var(--rasp-error);
+    color: var(--rasp-error);
+    border-radius: var(--rasp-radius);
+    padding: var(--rasp-space-2) var(--rasp-space-3);
+    font-size: var(--rasp-font-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rasp-space-2);
+
+    &:hover:not(:disabled) {
+      background: var(--rasp-error);
+      color: var(--rasp-text);
+    }
+  }
+
+  button[data-variant='accent'] {
+    background: var(--rasp-accent);
+    color: var(--rasp-text);
+    border: none;
+    border-radius: var(--rasp-radius);
+    padding: var(--rasp-space-2) var(--rasp-space-4);
+    font-size: var(--rasp-font-base);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rasp-space-2);
+    white-space: nowrap;
+
+    &:hover:not(:disabled) {
+      background: var(--rasp-accent-hover);
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  // Input base styles
+  // ═══════════════════════════════════════════
+  input,
+  select {
+    background: var(--rasp-input-bg);
+    border: 1px solid var(--rasp-border);
+    border-radius: var(--rasp-radius);
+    color: var(--rasp-text);
+    padding: var(--rasp-space-2) var(--rasp-space-3);
+    font-size: var(--rasp-font-base);
+    outline: none;
+    transition: border-color var(--rasp-transition);
+
+    &:focus {
+      border-color: var(--rasp-accent);
+    }
+
+    &::placeholder {
+      color: var(--rasp-text-muted);
+      opacity: 0.6;
+    }
+  }
+
+  select {
+    color-scheme: dark;
+  }
+}
+
+.divider {
+  height: 1px;
+  background: var(--rasp-border-dark);
+  width: 100%;
+}
+
+.material-symbols-outlined {
+  &.font-xl {
+    font-size: var(--rasp-font-xl);
+  }
+}
+
+.font-xl {
+  font-size: var(--rasp-font-xl);
+}
+
+// .raspberry::before {
+//   content: '';
+//   --bg-grid-line: 255 255 255;
+//   --bg-grid-alpha: 0.05;
+
+//   inset: 0;
+
+//   --bg-square-size: 32px;
+
+//   position: fixed;
+//   z-index: -1;
+
+//   background:
+//     linear-gradient(
+//         rgb(var(--bg-grid-line) / var(--bg-grid-alpha)) 1px,
+//         transparent 1px
+//       )
+//       0 0 / var(--bg-square-size) var(--bg-square-size),
+//     linear-gradient(
+//         90deg,
+//         rgb(var(--bg-grid-line) / var(--bg-grid-alpha)) 1px,
+//         transparent 1px
+//       )
+//       0 0 / var(--bg-square-size) var(--bg-square-size);
+// }

@@ -5,11 +5,11 @@
 
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: var(--gap-3);
 
   .controller {
     display: flex;
-    gap: 10px;
+    gap: var(--gap-3);
 
     height: 800px;
     padding: 20px;
@@ -19,7 +19,7 @@
   .volumeControl {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--gap-3);
     max-height: 100%;
 
     .volumeSlider {
@@ -89,7 +89,7 @@
 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: var(--gap-3);
 
       .buttonWrapper {
         .padText {

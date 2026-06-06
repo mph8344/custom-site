@@ -1,1 +1,27 @@
-@use './pine-theme.scss';
+body::before {
+  content: '';
+  --bg-grid-line: 255 255 255;
+  --bg-grid-alpha: 0.05;
+
+  inset: 0;
+
+  --bg-square-size: 32px;
+
+  position: fixed;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+        rgb(var(--bg-grid-line) / var(--bg-grid-alpha)) 1px,
+        transparent 1px
+      )
+      0 0 / var(--bg-square-size) var(--bg-square-size),
+    linear-gradient(
+        90deg,
+        rgb(var(--bg-grid-line) / var(--bg-grid-alpha)) 1px,
+        transparent 1px
+      )
+      0 0 / var(--bg-square-size) var(--bg-square-size);
+
+  background-color: var(--rasp-bg);
+}
