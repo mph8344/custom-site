@@ -1,5 +1,4 @@
 .dashboard {
-  // background-color: var(--rasp-bg);
   display: flex;
 
   height: 100vh;
@@ -10,10 +9,10 @@
     min-height: 200px;
     z-index: 1;
 
-    border: 1px solid var(--rasp-border-dark);
-    border-radius: var(--rasp-radius-lg);
+    border: 1px solid var(--theme-border-dark);
+    border-radius: var(--theme-radius-lg);
 
-    background: var(--rasp-bg);
+    background: var(--theme-bg);
 
     margin: auto;
     padding: 20px;
@@ -21,7 +20,7 @@
     .dashGrid {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: var(--rasp-space-4);
+      gap: var(--theme-space-4);
 
       height: 100%;
     }
@@ -29,11 +28,11 @@
     .navButtons {
       display: flex;
       flex-direction: column;
-      gap: var(--rasp-space-2);
+      gap: var(--theme-space-2);
       height: 100%;
 
       padding-right: 16px;
-      border-right: 1px solid var(--rasp-border-dark);
+      border-right: 1px solid var(--theme-border-dark);
     }
   }
 }

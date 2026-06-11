@@ -1,0 +1,50 @@
+.appHeader {
+  height: 70px;
+  width: 100%;
+
+  align-items: center;
+  display: grid;
+  grid-area: header;
+
+  // background: var(--theme-bg);
+  // border-bottom: 1px solid var(--theme-border);
+  // border-top: 1px solid var(--theme-border);
+  padding: var(--spacing-4);
+
+  // box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  grid-template-areas: 'icon navigation other after';
+  grid-template-columns: auto 1fr auto auto;
+  gap: var(--spacing-4);
+
+  --divider-color: var(--theme-border);
+
+  .navigation {
+    grid-area: navigation;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    height: 100%;
+  }
+
+  .logoContainer {
+    display: flex;
+    grid-area: icon;
+    align-items: center;
+    // padding-inline: var(--spacing-2);
+    gap: var(--spacing-3);
+
+    user-select: none;
+
+    .appTitle {
+      font-size: var(--theme-font-xl);
+      font-family: 'Audiowide', sans-serif;
+      font-weight: 400;
+    }
+  }
+
+  .endButtons {
+    grid-area: after;
+  }
+}

@@ -1,0 +1,17 @@
+.landingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-area: main;
+
+  .centeredText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+  }
+}
