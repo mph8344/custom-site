@@ -102,7 +102,7 @@
     cursor: pointer;
 
     border-radius: var(--theme-radius);
-    min-height: 32px;
+    min-height: 1ch;
     min-width: 1ch;
     align-items: center;
     display: inline-flex;
@@ -152,6 +152,10 @@
       --theme-button-text: var(--theme-accent);
       --theme-button-text-hover: var(--theme-accent-hover);
       --theme-button-bg-hover: none;
+    }
+
+    &[data-compact] {
+      padding: var(--theme-space-1);
     }
 
     &[data-variant='primary'] {
@@ -215,30 +219,30 @@
       }
     }
 
-    &[data-variant='icon'] {
-      min-width: 1ch;
+    // &[data-variant='icon'] {
+    //   min-width: 1ch;
 
-      --theme-button-text: var(--theme-text-muted);
-      --theme-button-text-hover: var(--theme-text);
-      --theme-button-bg: var(--theme-surface);
-      --theme-button-bg-hover: var(--theme-surface-hover);
+    //   --theme-button-text: var(--theme-text-muted);
+    //   --theme-button-text-hover: var(--theme-text);
+    //   --theme-button-bg: var(--theme-surface);
+    //   --theme-button-bg-hover: var(--theme-surface-hover);
 
-      &[data-accented] {
-        --theme-button-bg: var(--theme-surface);
-        --theme-button-text-hover: var(--theme-accent-hover);
-        --theme-button-bg-hover: var(--theme-surface-raised);
-      }
+    //   &[data-accented] {
+    //     --theme-button-bg: var(--theme-surface);
+    //     --theme-button-text-hover: var(--theme-accent-hover);
+    //     --theme-button-bg-hover: var(--theme-surface-raised);
+    //   }
 
-      &[data-destructive] {
-        --theme-button-border-color: var(--theme-error);
-        --theme-button-border-hover-color: var(--theme-error-dark);
+    //   &[data-destructive] {
+    //     --theme-button-border-color: var(--theme-error);
+    //     --theme-button-border-hover-color: var(--theme-error-dark);
 
-        --theme-button-bg-hover: var(--theme-error);
+    //     --theme-button-bg-hover: var(--theme-error);
 
-        --theme-button-text: var(--theme-error);
-        --theme-button-text-hover: var(--theme-text);
-      }
-    }
+    //     --theme-button-text: var(--theme-error);
+    //     --theme-button-text-hover: var(--theme-text);
+    //   }
+    // }
 
     // Background
     --_rasp-color-bg-disabled: var(--btn-disabled)
@@ -363,4 +367,17 @@ body {
 
 .flex.vert {
   flex-direction: column;
+}
+
+.popupMenu {
+  position: fixed;
+  z-index: 1000;
+  border: 1px solid var(--theme-border);
+  background-color: var(--theme-surface);
+  // border-radius: var(--radius-2);
+  padding: var(--spacing-2);
+
+  // Update when button radius is updated
+  border-radius: var(--theme-radius);
+  overflow: hidden;
 }

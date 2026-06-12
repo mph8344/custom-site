@@ -5,22 +5,28 @@ import { useNavigate } from 'react-router';
 import type { StarBackgroundHandle } from '../../components/StarBackground/StarBackground';
 import { useAnimationPreference } from '../../hooks/useAnimationPreference';
 import StarBackground from '../../components/StarBackground/StarBackground';
+import gsap from 'gsap';
+
+function fadeCenter() {
+  return new Promise((resolve) =>
+    gsap
+      .to('#centeredText', {
+        autoAlpha: 0,
+        duration: 1.5,
+        // ease: 'power2.out',
+      })
+      .then(resolve),
+  );
+}
 
 export const LandingScreen: React.FC = () => {
-  const { enabled, toggle } = useAnimationPreference();
+  const { enabled } = useAnimationPreference();
   const starRef = useRef<StarBackgroundHandle>(null);
   const [sweeping, setSweeping] = useState(false);
 
   const handleSweepOut = useCallback(async () => {
-    if (sweeping) {
-      return;
-    }
-
-    setSweeping(true);
-    await starRef.current?.sweepOut();
-    // toggle();
-    setSweeping(false);
-  }, [sweeping]);
+    await starRef.current?.sweepOut(3);
+  }, []);
 
   // const btnBase: React.CSSProperties = {
   //   width: '36px',
@@ -41,10 +47,25 @@ export const LandingScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const goToDash = useCallback(() => {
-    handleSweepOut().then(() => {
+    setTimeout(() => navigate('/dash'), 500);
+  }, [navigate]);
+
+  const handleClickBegin = useCallback(() => {
+    if (!enabled) {
       navigate('/dash');
-    });
-  }, [handleSweepOut, navigate]);
+      return;
+    }
+
+    if (sweeping) {
+      return;
+    }
+
+    setSweeping(true);
+
+    Promise.allSettled([handleSweepOut(), fadeCenter()]).then(goToDash);
+
+    setSweeping(false);
+  }, [goToDash, handleSweepOut, sweeping, enabled, navigate]);
 
   // const goToDash = () => navigate('/dash');
 
@@ -89,12 +110,12 @@ export const LandingScreen: React.FC = () => {
     // </div>
 
     <main className={styles.landingScreen}>
-      <StarBackground ref={starRef} enabled={true} />
+      <StarBackground ref={starRef} enabled={enabled} />
 
-      <div className={styles.centeredText}>
+      <div id='centeredText' className={styles.centeredText}>
         <span>{'scattered amongst the stars'}</span>
         <span>{'is where we may'}</span>
-        <button data-variant='inline' onClick={goToDash}>
+        <button data-variant='inline' onClick={handleClickBegin}>
           {'begin'}
         </button>
       </div>

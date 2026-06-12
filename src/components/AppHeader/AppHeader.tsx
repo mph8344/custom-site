@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './AppHeader.module.scss';
 import { useNavigate } from 'react-router';
+import { useAnimationPreference } from '../../hooks/useAnimationPreference';
+import { PopupMenu } from '../PopupMenu/PopupMenu';
 
 const NAV_LINKS = [
   {
@@ -23,6 +25,8 @@ const NAV_LINKS = [
 ];
 
 export const AppHeader: React.FC = () => {
+  const { enabled, toggle } = useAnimationPreference();
+
   const navigate = useNavigate();
 
   const goHome = () => navigate('/');
@@ -39,26 +43,26 @@ export const AppHeader: React.FC = () => {
       <div className={styles.navigation}>
         <div className='divider-vertical' />
         {NAV_LINKS.map((n) => (
-          <button
-            key={n.id}
-            data-variant='secondary'
-            style={{
-              padding: 'var(--spacing-1)',
-            }}
-          >
+          <button key={n.id} data-variant='secondary' data-compact>
             <span className='material-symbols-outlined filled'>{n.icon}</span>
           </button>
         ))}
       </div>
 
       <div className={styles.endButtons}>
-        <button
-          data-variant='icon'
-          data-accented
-          style={{ justifySelf: 'flex-end' }}
-        >
-          <span className='material-symbols-outlined filled'>{'settings'}</span>
-        </button>
+        {/* <PopupMenu placement='above' /> */}
+        {/* <PopupMenu placement='left' /> */}
+        {/* <PopupMenu placement='below' /> */}
+        <PopupMenu placement='below'>
+          <div className='flex vert'>
+            <button data-variant='tertiary' onClick={toggle}>
+              {`${enabled ? 'Disable' : 'Enable'} Animations`}
+            </button>
+            <button data-variant='tertiary' data-compact>
+              <span className='material-symbols-outlined'>{'info'}</span>
+            </button>
+          </div>
+        </PopupMenu>
       </div>
     </header>
   );

@@ -11,7 +11,7 @@ interface Star {
 }
 
 export interface StarBackgroundHandle {
-  sweepOut(): Promise<void>;
+  sweepOut(duration?: number): Promise<void>;
 }
 
 interface Props {
@@ -25,7 +25,7 @@ const StarBackground = forwardRef<StarBackgroundHandle, Props>(
     const tweensRef = useRef<gsap.core.Tween[]>([]);
 
     useImperativeHandle(ref, () => ({
-      sweepOut(): Promise<void> {
+      sweepOut(duration: number = 1.4): Promise<void> {
         return new Promise((resolve) => {
           const canvas = canvasRef.current;
           const stars = starsRef.current;
@@ -47,7 +47,7 @@ const StarBackground = forwardRef<StarBackgroundHandle, Props>(
             return db - da;
           });
 
-          const spreadDuration = 1.4; // total time between first and last star starting
+          const spreadDuration = duration; // total time between first and last star starting
           const fadeDuration = 0.5;
 
           sorted.forEach((star, i) => {
@@ -67,7 +67,7 @@ const StarBackground = forwardRef<StarBackgroundHandle, Props>(
     }));
 
     useEffect(() => {
-      if (!enabled) return;
+      // if (!enabled) return;
 
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -87,6 +87,10 @@ const StarBackground = forwardRef<StarBackgroundHandle, Props>(
           r: Math.random() * 1.5 + 0.5,
           alpha: Math.random(),
         }));
+
+        if (!enabled) {
+          return;
+        }
 
         tweensRef.current = starsRef.current.map((star) =>
           gsap.to(star, {
