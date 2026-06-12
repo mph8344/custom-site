@@ -66,23 +66,6 @@
   --theme-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
   --theme-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
 
-  // ─── Spacing (4-point scale) ───
-  --theme-space-1: 4px;
-  --theme-space-2: 8px;
-  --theme-space-3: 12px;
-  --theme-space-4: 16px;
-  --theme-space-5: 20px;
-  --theme-space-6: 24px;
-  --theme-space-8: 32px;
-  --theme-space-10: 40px;
-  --theme-space-12: 48px;
-  --theme-space-16: 64px;
-
-  // ─── Radii ───
-  --theme-radius: 6px;
-  --theme-radius-lg: 12px;
-  --theme-radius-full: 999px;
-
   // ─── Typography ───
   --theme-font-xs: 0.6875rem;
   --theme-font-sm: 0.8125rem;
@@ -101,7 +84,7 @@
   button {
     cursor: pointer;
 
-    border-radius: var(--theme-radius);
+    border-radius: var(--radius-1);
     min-height: 1ch;
     min-width: 1ch;
     align-items: center;
@@ -109,7 +92,7 @@
     width: max-content;
     height: max-content;
     justify-content: center;
-    padding: var(--theme-space-1);
+    padding: var(--spacing-1);
 
     font-size: var(--theme-font-base);
     transition:
@@ -138,8 +121,8 @@
     &[data-variant='primary'],
     &[data-variant='secondary'],
     &[data-variant='tertiary'] {
-      padding: var(--theme-space-2) var(--theme-space-3);
-      gap: var(--theme-space-2);
+      padding: var(--spacing-2) var(--spacing-3);
+      gap: var(--spacing-2);
 
       &[data-accented] {
         --theme-button-border-hover-color: var(--theme-accent-hover);
@@ -155,7 +138,7 @@
     }
 
     &[data-compact] {
-      padding: var(--theme-space-1);
+      padding: var(--spacing-1);
     }
 
     &[data-variant='primary'] {
@@ -293,9 +276,9 @@
   select {
     background: var(--theme-input-bg);
     border: 1px solid var(--theme-border);
-    border-radius: var(--theme-radius);
+    border-radius: var(--radius-1);
     color: var(--theme-text);
-    padding: var(--theme-space-2) var(--theme-space-3);
+    padding: var(--spacing-2) var(--spacing-3);
     font-size: var(--theme-font-base);
     outline: none;
     transition: border-color var(--theme-transition);
@@ -339,7 +322,7 @@ body {
 
 .grid {
   display: grid;
-  gap: var(--theme-space-2);
+  gap: var(--spacing-2);
 }
 
 .gap-0 {
@@ -350,7 +333,7 @@ body {
   display: flex;
   flex-direction: row;
 
-  gap: var(--theme-space-2);
+  gap: var(--spacing-2);
 
   &.pad-t-0 {
     padding-top: 0;
@@ -377,7 +360,6 @@ body {
   // border-radius: var(--radius-2);
   padding: var(--spacing-2);
 
-  // Update when button radius is updated
-  border-radius: var(--theme-radius);
+  border-radius: var(--radius-1);
   overflow: hidden;
 }

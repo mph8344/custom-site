@@ -7,7 +7,7 @@ import React, {
 import { createPortal } from 'react-dom';
 
 type Props = PropsWithChildren<{
-  placement?: 'left' | 'below' | 'right' | 'above';
+  placement?: 'beside' | 'below';
   distance?: number;
 }>;
 
@@ -18,41 +18,70 @@ type MenuPosition = {
   bottom?: number;
 };
 
-const determinePos =
-  (placement: 'left' | 'below' | 'right' | 'above', distance: number) =>
-  (rect: DOMRect) => {
-    console.log(window.innerWidth, rect.left, rect.right);
-
+/**
+ * Function to create a popup-menu position calculator
+ *
+ * Popup menus should appear moving left-to-right, top-to-bottom, only
+ * shifting if the content will go off screen
+ * @param placement whether the menu should be placed below or beside the trigger
+ * @param distance the distance from the menu to the trigger
+ * @returns
+ */
+const positionCalculator =
+  (placement: 'beside' | 'below', distance: number) => (rect: DOMRect) => {
     // For 'left': we need to set the position to right: so that the content is
     // properly aligned
     // Same goes for left
 
+    const menuWidth = 150;
+    const menuHeight = 200;
+
+    const pos: MenuPosition = {
+      bottom: undefined,
+      top: undefined,
+      left: undefined,
+      right: undefined,
+    };
+
+    if (placement === 'beside') {
+      const proposedLeft = rect.right + distance;
+
+      if (proposedLeft + menuWidth > window.innerWidth) {
+        pos.right = window.innerWidth - rect.left + distance;
+      } else {
+        pos.left = proposedLeft;
+      }
+
+      const proposedTop = rect.top;
+
+      if (proposedTop + menuHeight > window.innerHeight) {
+        pos.bottom = window.innerHeight - rect.bottom;
+      } else {
+        pos.top = proposedTop;
+      }
+
+      return pos;
+    }
+
     if (placement === 'below') {
-      return {
-        top: rect.bottom + distance,
-        right: window.innerWidth - rect.right,
-      };
-    }
+      const proposedTop = rect.bottom + distance;
 
-    if (placement === 'left') {
-      return {
-        right: window.innerWidth - rect.left + distance,
-        top: rect.top,
-      };
-    }
+      if (proposedTop + menuHeight > window.innerHeight) {
+        pos.bottom = window.innerHeight - rect.top + distance;
+      } else {
+        pos.top = proposedTop;
+      }
 
-    if (placement === 'right') {
-      return {
-        left: rect.right + distance,
-        top: rect.top,
-      };
-    }
+      const proposedLeft = rect.left;
 
-    if (placement === 'above') {
-      return {
-        bottom: window.innerHeight - rect.top + distance,
-        right: window.innerWidth - rect.right,
-      };
+      if (proposedLeft + menuWidth > window.innerWidth) {
+        console.log('here', window.innerWidth, rect.right);
+        pos.right = window.innerWidth - rect.right;
+      } else {
+        pos.left = proposedLeft;
+      }
+
+      return pos;
     }
 
     return null;
@@ -71,7 +100,7 @@ export const PopupMenu: React.FC<Props> = ({
 
   const ref = useRef<HTMLButtonElement>(null);
 
-  const determinePosition = determinePos(placement, distance);
+  const determinePosition = positionCalculator(placement, distance);
 
   useEffect(() => {
     if (!menuOpen) return;
